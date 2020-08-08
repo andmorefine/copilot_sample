@@ -13,11 +13,11 @@ services:
   #     - ./db/mysql_data:/var/lib/mysql
   app:
     build: .
-    container_name: exchange_app
+    container_name: copilot_app
     tty: true
     volumes:
       - ./:/go/src
     ports:
-      - 80:80
+      - 8080:8080
     # depends_on:
     #   - db
