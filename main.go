@@ -3,8 +3,6 @@ package main
 import (
 	"log"
 
-	_ "github.com/go-sql-driver/mysql"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -24,5 +22,5 @@ func main() {
 		})
 	})
 
-	r.Run(":8080")
+	r.Run(":80")
 }
