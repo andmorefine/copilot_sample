@@ -1,7 +1,7 @@
 FROM golang:1.14.4 as build
 FROM alpine:latest
 
-RUN apk add --update --no-cache git go make curl
+RUN apk add --update --no-cache git go
 
 COPY . /go/src
 WORKDIR /go/src
