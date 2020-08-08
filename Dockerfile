@@ -1,4 +1,5 @@
 FROM golang:1.14.4 as build
+FROM alpine:latest
 
 ENV GOPATH /go
 RUN apk add --update --no-cache git
@@ -12,8 +13,6 @@ ENV GO111MODULE=on
 
 RUN go mod download
 RUN go get github.com/pilu/fresh
-
-FROM alpine:latest
 
 RUN mkdir /app
 WORKDIR /app
