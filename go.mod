@@ -1,4 +1,4 @@
-module copilot_sample
+module github.com/andmorefine/copilot_sample
 
 go 1.14
 
