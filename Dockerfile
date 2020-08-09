@@ -11,7 +11,7 @@ ENV GO111MODULE=on
 RUN go mod download
 RUN go get github.com/pilu/fresh
 
-RUN go build -o copilot-app .
+RUN go build -o golang-app .
 
 RUN mkdir /app
 WORKDIR /app
@@ -19,4 +19,4 @@ COPY --from=build /go/src /app
 
 # CMD ["fresh"]
 
-CMD ["/app/copilot-app"]
+CMD ["/app/golang-app"]

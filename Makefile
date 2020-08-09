@@ -1,5 +1,5 @@
 build:
-    GOARCH=amd64 GOOS=linux go build -o copilot-app
+    GOARCH=amd64 GOOS=linux go build -o golang-app
 .PHONY: build
 
 test:
@@ -7,5 +7,5 @@ test:
 .PHONY: test
 
 clean:
-    rm -rf copilot-app
+    rm -rf golang-app
 .PHONY: clean
