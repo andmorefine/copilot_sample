@@ -1,22 +1,20 @@
-FROM golang:1.14.4 as build
+FROM golang:1.14.4
 FROM alpine:latest
 
 RUN apk add --update --no-cache git go
 
-COPY . /go/src
-WORKDIR /go/src
+WORKDIR /go/src/app
+COPY . .
 
 ENV GO111MODULE=on
 
+RUN go get -d -v ./...
+RUN go install -v ./...
 RUN go mod download
 RUN go get github.com/pilu/fresh
 
 RUN go build -o golang-app .
 
-RUN mkdir /app
-WORKDIR /app
-COPY --from=build /go/src /app
-
 # CMD ["fresh"]
 
-CMD ["/app/golang-app"]
+CMD /app/golang-app 80
