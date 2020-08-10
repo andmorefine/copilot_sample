@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -31,6 +32,8 @@ func main() {
 	log.Println("success")
 
 	r := gin.Default()
+	r.LoadHTMLGlob("templates/*.tmpl")
+
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "ok",
@@ -42,5 +45,13 @@ func main() {
 		})
 	})
 
-	r.Run(":80")
+	r.GET("/index", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"title":  "Main website",
+			"body":   "body",
+			"status": http.StatusText(http.StatusOK),
+		})
+	})
+
+	r.Run(":8080")
 }

@@ -11,7 +11,7 @@ image:
   # Path to your service's Dockerfile.
   build: ./Dockerfile
   # Port exposed through your container to route traffic to it.
-  port: 80
+  port: 8080
 
 http:
   # Requests to this path will be forwarded to your service. 
