@@ -1,4 +1,4 @@
-FROM golang:1.14.7-alpine3.12 as build
+FROM golang:1.14.7-alpine3.12 as builder
 
 ENV GO111MODULE=on
 
@@ -8,7 +8,7 @@ WORKDIR /go/src
 RUN go build -o golang-app .
 
 FROM alpine:3.12
-COPY --from=build /go/src/golang-app /app/golang-app
+COPY --from=builder /go/src/golang-app /app/golang-app
 
 EXPOSE 8080
 
