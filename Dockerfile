@@ -10,6 +10,6 @@ RUN go build -o golang-app .
 FROM alpine:3.12
 COPY --from=builder /go/src/golang-app /app/golang-app
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD /app/golang-app
